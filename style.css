@@ -1,0 +1,30 @@
+.info{
+    margin-left:15% ;
+    margin-right:15% ;
+    color: rgba(0, 0, 0, 0.534);
+
+}
+#country{
+    font-size: 2rem;
+}
+body{
+    
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(167, 163, 159, 0.219);
+    font-size: x-large;
+}
+h1{
+    color: rgb(59, 56, 56);
+    
+}
+
+@media (max-width: 768px) {
+    h1{
+        font-size: 2rem;
+    }
+    .info{
+        margin-right: .5rem;
+        margin-left: .5rem;
+        
+    }
+  }
