@@ -45,15 +45,12 @@ function getCountry() {
   }
 
 guessBtn.onclick=function guess(){
-console.log("moo")
-console.log(c)
-console.log(g.value)
-console.log(numGuesses)
 if (g.value===c){
     alert("that is correct")
     numGuesses=0
-    score+=5
+    score+=1
     scoreTxt.textContent="Score: "+score
+    g.value=""
     getCountry();
 }
 else{
@@ -64,12 +61,13 @@ else{
 if(numGuesses==3){
     alert("wrong the correct answeer is: " +c)
     numGuesses=0;
+    g.value=""
     getCountry();
+    
 }
 }
 
 getCountry()
-console.log(c)
 //guessBtn.onclick=guess(g)
 
 
