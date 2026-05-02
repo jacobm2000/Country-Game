@@ -36,7 +36,7 @@ function getCountry() {
         else{
             country.textContent=data[1][x].name[0];
             c=data[1][x].name
-            c=  c.split(/[,.(]/)[0].toLowerCase();
+            c=  c.split(/[,.(]/)[0];
 
             
         }
@@ -48,7 +48,7 @@ function getCountry() {
   }
 
 guessBtn.onclick=function guess(){
-if (g.value.toLowerCase()===c){
+if (g.value.toLowerCase()===c.toLowerCase()){
     resultTxt.textContent="that is correct"
     numGuesses=0
     streak+=1
@@ -64,7 +64,7 @@ else{
     country.textContent=country.textContent+c[numGuesses]
 }
 if(numGuesses==parseInt(c.length/2)){
-    resultTxt.textContent="wrong the correct answeer is: " +c
+    resultTxt.textContent="wrong the correct answer is: " +c
     streak=0;
     streakTxt.textContent="Streak: "+streak
     numGuesses=0;
