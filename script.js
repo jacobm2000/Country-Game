@@ -4,7 +4,9 @@ var guessBtn=document.getElementById("guessBtn")
 var c;
 var score=0
 var scoreTxt=document.getElementById("score")
-
+var streakTxt=document.getElementById("streak")
+var resultTxt=document.getElementById("result")
+var streak=0;
 
 
 var map=document.getElementById("map")
@@ -34,7 +36,8 @@ function getCountry() {
         else{
             country.textContent=data[1][x].name[0];
             c=data[1][x].name
-  
+            c=  c.split(/[,.(]/)[0].toLowerCase();
+
             
         }
        
@@ -45,23 +48,29 @@ function getCountry() {
   }
 
 guessBtn.onclick=function guess(){
-if (g.value===c){
-    alert("that is correct")
+if (g.value.toLowerCase()===c){
+    resultTxt.textContent="that is correct"
     numGuesses=0
-    score+=1
+    streak+=1
+    score+=streak+1
     scoreTxt.textContent="Score: "+score
+    streakTxt.textContent="Streak: "+streak
     g.value=""
     getCountry();
 }
 else{
-    alert("incorrect")
+     resultTxt.textContent="incorrect"
     numGuesses+=1
     country.textContent=country.textContent+c[numGuesses]
 }
-if(numGuesses==3){
-    alert("wrong the correct answeer is: " +c)
+if(numGuesses==parseInt(c.length/2)){
+    resultTxt.textContent="wrong the correct answeer is: " +c
+    streak=0;
+    streakTxt.textContent="Streak: "+streak
     numGuesses=0;
     g.value=""
+    
+    
     getCountry();
     
 }
